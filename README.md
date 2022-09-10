@@ -11,10 +11,8 @@ copied the SSH code from GitHub and used 'git clone' command in linux terminal t
 
 created index.html and javascript.js files inside the rockpaperscissors directory
 
-setup the index.html skeleton, and in accordance with TOP instructions, included <script src="javascript.js"> </script> in the html body so that I can get used to the practice of linking an external javascript file to the html document, instead of writing the javascript code in the html body script section
+setup the index.html skeleton, and in accordance with TOP instructions, included <script src="javascript.js"> </script> in the html body so that I can get used to the practice of linking an external javascript file to the html document, instead of writing all the javascript code in the html body script section
 
 wrote a short console.log() script in the javascript.js file and then used firefox index.html command in terminal to open the html document to verify that the javascript code was properly linked into my html document (it was!)
 
-
-
-
+used git add, git commit, and git push commands to add the html, js, and README files to the GitHub repository; confirmed that all were properly updated on GitHub to the main branch of this repository
