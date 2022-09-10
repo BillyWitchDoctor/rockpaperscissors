@@ -16,3 +16,5 @@ setup the index.html skeleton, and in accordance with TOP instructions, included
 wrote a short console.log() script in the javascript.js file and then used firefox index.html command in terminal to open the html document to verify that the javascript code was properly linked into my html document (it was!)
 
 used git add, git commit, and git push commands to add the html, js, and README files to the GitHub repository; confirmed that all were properly updated on GitHub to the main branch of this repository
+
+wrote most of the javascript code for the project - finished the playRound function and confirmed that the code returns the correct string indicating loss, win, or tie depending on the playerSelection and computerSelection variables that were defined/obtained in the code;
