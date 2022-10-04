@@ -24,8 +24,7 @@ getComputerChoice();
 
 // console.log("The computer's selection is " + computerSelection);
 
-// this seems to be working correctly - once we have the other kinks worked out below we can remove this console.log() check so that we don't give away the computer's choice to the player, who will be playing this game in the console and see the computer's choice, hahaha!
-
+// this seems to be working correctly - once we have the other kinks worked out below we can remove this console.log() check so that we don't give away the computer's choice to the player
 
 // Now we need to prompt the player for their choice of rock, paper, or scissors (case INSENSITIVE) and record that as a variable called playerSelection:
 
@@ -37,29 +36,29 @@ let playerSelection = prompt('Choose your weapon', 'Type your choice here');
 
 // looks good! I commented out the console.log() check above, but we can revert to it if needed in the future
 
-// now we're going to create a function simulating one (1) round of play, using the playerSelection and computerSelection variables that should now be defined
+// now we're going to create a function simulating one (1) round of play, using the playerSelection and computerSelection variables that should now be defined; I used the .toLowerCase modifier on both playerSelection and computerSelection variables so that we can take care of any cApS issues with the player input and compare the variables properly
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'paper') {
-        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Lose! Paper beats Rock!`
+        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Lose this round! Paper beats Rock!`
     }
     else if (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'scissors') {
-        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Lose! Scissors beats Paper!`
+        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Lose this round! Scissors beats Paper!`
     }
     else if (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'rock'){
-        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Lose! Rock beats Scissors!`
+        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Lose this round! Rock beats Scissors!`
     }
     else if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') {
-        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Win! Rock beats Scissors!`
+        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Win this round! Rock beats Scissors!`
     }
     else if (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock') {
-        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Win! Paper beats Rock!`
+        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Win this round! Paper beats Rock!`
     }
     else if (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper') {
-        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Win! Scissors beats Paper!`
+        return `You chose ${playerSelection} and the computer chose ${computerSelection} - You Win this round! Scissors beats Paper!`
     }
     else if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-        return `You chose ${playerSelection} and the computer chose ${computerSelection} - it's a Tie!`
+        return `You chose ${playerSelection} and the computer chose ${computerSelection} - this round is a Tie!`
     }
     else {
         return `You entered ${playerSelection}, which is not an option for this game. Please check your spelling (and any extra spaces before or after your choice) and try again.`;
@@ -68,4 +67,36 @@ function playRound(playerSelection, computerSelection) {
 
 // lets do another console.log() check to see if this function is returning the desired string output
 
-console.log(playRound(playerSelection,computerSelection));
+// console.log(playRound(playerSelection,computerSelection));
+
+// That worked fine, so I commented it out for now; Next I'll try to create a game function that includes X rounds of playRound function (adjustable to any desired number of rounds) and keeps score between the player and the computer
+
+function game(rounds) {
+    let playerScore = 0;
+    let computerScore = 0; 
+    for (let i = 0; i < rounds; i++) {
+        console.log(playRound(playerSelection, computerSelection));
+        if (playRound(playerSelection, computerSelection).includes('Win')) {
+            ++playerScore;
+        } else if (playRound(playerSelection,computerSelection).includes('Lose')) {
+            ++computerScore;
+        };
+        console.log(`Round #${(i + 1)} of ${rounds} is complete. The current score is: Player - ${playerScore} Computer - ${computerScore}.`);
+        // I added the code below to generate new values for computerSelection and playerSelection after each round ws played. However, I had to add the if (i < rounds - 1) qualifier because the for loop was causing an extra prompt for user input after the last round had already been played. Not sure if there is a cleaner way to exclude the playerSelection prompt from the for loop...but this worked fine for now!
+        if (i < rounds - 1) {
+            getComputerChoice();
+            playerSelection = prompt('Choose your weapon', 'Type your choice here');
+        };
+    };
+
+    if (playerScore > computerScore) {
+        return `After ${rounds} rounds of play, the final score is Player - ${playerScore} Computer - ${computerScore}. Congratulations, you beat a stupid computer!`;
+    } else if (computerScore > playerScore) {
+        return `After ${rounds} rounds of play, the final score is Player - ${playerScore} Computer - ${computerScore}. Sorry, but you lost to a stupid computer!`;
+    } else {
+        return `After ${rounds} rounds of play, the final score is Player - ${playerScore} Computer - ${computerScore}. You tied with a stupid computer.`;
+    };
+};
+
+console.log(game(5));
+

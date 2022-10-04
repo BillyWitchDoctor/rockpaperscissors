@@ -18,3 +18,5 @@ wrote a short console.log() script in the javascript.js file and then used firef
 used git add, git commit, and git push commands to add the html, js, and README files to the GitHub repository; confirmed that all were properly updated on GitHub to the main branch of this repository
 
 wrote most of the javascript code for the project - finished the playRound function and confirmed that the code returns the correct string indicating loss, win, or tie depending on the playerSelection and computerSelection variables that were defined/obtained in the code;
+
+10/4/22 - finally opened up TOP again to finish this exercise; created the game(x); function that allows for x number of rounds to be played between the user and the computer; game() keeps track of the score and returns a statement notifying the user of the final score and whether or not they beat the computer, lost to the computer, or tied the computer. everything worked well when I tested it!
