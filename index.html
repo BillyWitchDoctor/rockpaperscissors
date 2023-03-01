@@ -3,11 +3,136 @@
     <head>
         <meta charset="UTF-8">
         <title>JJ's Rock, Paper, Scissors Game</title>
+        <style>
+            
+            .title {
+                display: flex;
+                justify-content: center;
+                font-size: large;
+                font-weight: bold;
+                padding: 20px;
+            }
+            .weapons {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+            .update {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                padding: 20px;
+            }
+            .score {
+                display: flex;
+                flex-direction: column;
+                align-content: start;
+                justify-content: center;
+                text-align: center;
+            }
+            .finalResult {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                font-weight: bold;
+                padding: 20px;
+            }
+            #player {
+                display: flex;
+                justify-content: center;
+                gap: 5px;
+
+            }
+            #computer {
+                display: flex;
+                justify-content: center;
+                gap: 5px;
+                
+            }
+            #rockBtn {
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                background-image: url(images/rock.jpg);
+                background-size: cover;
+                background-position: center;
+                font-size: large;
+                font-weight: bold;
+            }
+            #paperBtn {
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                background-image: url(images/paper.jpg);
+                background-size: cover;
+                background-position: center;
+                font-size: large;
+                font-weight: bold;
+            }
+            #scissorsBtn {
+                width: 150px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                background-image: url(images/scissors.jpg);
+                background-size: cover;
+                background-position: center;
+                font-size: large;
+                font-weight: bold;
+            }
+            .result {
+                display: flex;
+                flex-direction: column;
+                align-content: start;
+                justify-content: center;
+                text-align: center;
+            }
+            #refreshBtn {
+                width: 200px;
+                align-self: center;
+            }
+        </style>
     </head>
     <body>
-        
-        <script src="javascript.js"></script>
+        <div class="title">Choose Your Weapon!</div>
 
+        <div class="weapons">
+            <button id="rockBtn">Rock</button>
+            <button id="paperBtn">Paper</button>
+            <button id="scissorsBtn">Scissors</button>
+        </div>
+
+        <div class="update">
+
+        </div>
+
+        <div class="score">
+            <div><b><u>Scoreboard</u></b></div>
+            <div id="player">
+                <div>Player:</div> 
+                <div id="pscore">0</div>
+            </div>
+            <div id="computer">
+                <div>Computer:</div>
+                <div id="cscore">0</div>
+            </div>
+        </div>
+
+        <div class="result">
+            <div class="finalResult">
+                The first player to reach 5 wins will be crowned the champion!
+            </div>
+            <button id="refreshBtn">Click here to play again!</button>
+        </div>
+        
+            
+
+        <script src="script.js"></script>
     </body>
 
 
